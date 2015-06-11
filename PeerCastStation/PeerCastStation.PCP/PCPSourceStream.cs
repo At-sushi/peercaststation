@@ -162,6 +162,7 @@ namespace PeerCastStation.PCP
     {
       try {
         client = new TcpClient();
+        client.ReceiveTimeout = 10000;
         client.Connect(endpoint);
         remoteEndPoint = (IPEndPoint)client.Client.RemoteEndPoint;
         var stream = client.GetStream();

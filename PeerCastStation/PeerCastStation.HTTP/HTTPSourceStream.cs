@@ -136,7 +136,8 @@ namespace PeerCastStation.HTTP
     {
       try {
         client = new TcpClient();
-        if (source.HostNameType==UriHostNameType.IPv4 ||
+        client.ReceiveTimeout = 10000;
+        if (source.HostNameType == UriHostNameType.IPv4 ||
             source.HostNameType==UriHostNameType.IPv6) {
           client.Connect(IPAddress.Parse(source.Host), source.Port);
         }

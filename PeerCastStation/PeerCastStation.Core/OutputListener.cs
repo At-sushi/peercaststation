@@ -218,11 +218,11 @@ namespace PeerCastStation.Core
     {
       logger.Debug("Output thread started");
       var client = (TcpClient)arg;
-      client.ReceiveBufferSize = 64*1024;
-      client.SendBufferSize    = 64*1024;
+      client.ReceiveBufferSize = 110*1024;
+      client.SendBufferSize    = 110*1024;
       var stream = client.GetStream();
-      stream.WriteTimeout = 3000;
-      stream.ReadTimeout = 3000;
+      stream.WriteTimeout = 30000;
+      stream.ReadTimeout = 30000;
       IOutputStream output_stream = null;
       Channel channel = null;
       try {

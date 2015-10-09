@@ -8,7 +8,7 @@ namespace PeerCastStation.Core
   public class StreamConnection
     : IDisposable
   {
-    public static readonly int RecvWindowSize = 64*1024;
+    public static readonly int RecvWindowSize = 110*1024;
     public static readonly int SendWindowSize = 16*1024;
     private ManualResetEvent recvEvent        = new ManualResetEvent(false);
     private RateCounter      recvBytesCounter = new RateCounter(1000);

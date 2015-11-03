@@ -221,8 +221,8 @@ namespace PeerCastStation.Core
       client.ReceiveBufferSize = 110*1024;
       client.SendBufferSize    = 110*1024;
       var stream = client.GetStream();
-      stream.WriteTimeout = 30000;
-      stream.ReadTimeout = 30000;
+      stream.WriteTimeout = 3000;
+      stream.ReadTimeout = 3000;
       IOutputStream output_stream = null;
       Channel channel = null;
       try {

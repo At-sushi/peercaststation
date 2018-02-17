@@ -17,6 +17,8 @@ namespace PeerCastStation.Core
       this.Channel = channel;
     }
 
+    private byte[] buf = new byte[8192];
+
     public async Task ReadAsync(IContentSink sink, Stream stream, CancellationToken cancel_token)
     {
       long pos = 0;
@@ -31,7 +33,6 @@ namespace PeerCastStation.Core
 
       bool eof = false;
       do {
-        var buf = new byte[8192];
         var sz = await stream.ReadAsync(buf, 0, buf.Length, cancel_token).ConfigureAwait(false);
         if (sz>0) {
           sink.OnContent(new Content(streamIndex, DateTime.Now-streamOrigin, pos, buf.Take(sz).ToArray()));

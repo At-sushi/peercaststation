@@ -1,0 +1,20 @@
+cache:
+  apt: true
+sudo: required
+addons:
+  apt:
+    packages:
+    - ruby
+before_install:
+  - gem update --system
+install:
+  - gem install bundler
+  - cd doc
+  - bundle install
+  - cd help
+  - RUBYOPT=-Eutf-8 jekyll build
+language: csharp
+solution: PeerCastStation/PeerCastStation.sln
+script:
+  - cd PeerCastStation
+  - xbuild PeerCastStation.sln

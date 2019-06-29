@@ -13,6 +13,7 @@ install:
   - bundle install
   - cd help
   - RUBYOPT=-Eutf-8 jekyll build
+  - cd ../..
 language: csharp
 solution: PeerCastStation/PeerCastStation.sln
 script:

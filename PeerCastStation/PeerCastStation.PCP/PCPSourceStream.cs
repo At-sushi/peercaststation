@@ -905,8 +905,7 @@ Stopped:
         rnd.NextDouble() * (
           ( n.IsReceiving ? 4000 : 0) +
           (!n.IsRelayFull ? 2000 : 0) +
-          (Math.Max(10-n.Hops, 0)*100) +
-          (n.RelayCount*10)
+          (Math.Max(10-n.Hops, 0)*100)
         )
       ).DefaultIfEmpty().First();
       if (res!=null) {

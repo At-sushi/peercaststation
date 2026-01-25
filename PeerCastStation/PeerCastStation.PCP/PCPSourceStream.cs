@@ -927,7 +927,8 @@ Stopped:
           ( n.IsReceiving ? 4000 : 0) +
           (!n.IsRelayFull ? 2000 : 0) +
           (Math.Max(10-n.Hops, 0)*100) +
-          (n.RelayCount*10)
+          (n.RelayCount*10) +
+          ((n.Extra.GetHostNewPos() ?? 0) / 1048576.0)
         )
       ).DefaultIfEmpty().First();
       if (res!=null) {
